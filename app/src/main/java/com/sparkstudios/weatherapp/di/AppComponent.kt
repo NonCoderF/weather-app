@@ -4,7 +4,7 @@ import android.app.Activity
 import android.app.Application
 import com.sparkstudios.weatherapp.WeatherApp
 import com.sparkstudios.weatherapp.presentation.MainActivity
-import com.sparkstudios.weatherapp.presentation.WeatherViewModel
+import com.sparkstudios.weatherapp.presentation.viewModels.WeatherViewModel
 import dagger.BindsInstance
 import dagger.Component
 import kotlinx.coroutines.ExperimentalCoroutinesApi

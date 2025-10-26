@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.sparkstudios.weatherapp.presentation.WeatherViewModel.WeatherState
+import com.sparkstudios.weatherapp.presentation.viewModels.WeatherViewModel.WeatherState
 
 @Composable
 fun WeatherForecast(

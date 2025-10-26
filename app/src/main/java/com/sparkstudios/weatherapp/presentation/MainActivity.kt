@@ -2,6 +2,7 @@ package com.sparkstudios.weatherapp.presentation
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
@@ -28,6 +29,8 @@ import com.sparkstudios.weatherapp.presentation.ui.WeatherForecast
 import com.sparkstudios.weatherapp.presentation.ui.theme.DarkBlue
 import com.sparkstudios.weatherapp.presentation.ui.theme.DeepBlue
 import com.sparkstudios.weatherapp.presentation.ui.theme.WeathherAppTheme
+import com.sparkstudios.weatherapp.presentation.viewModels.WeatherViewModel
+import com.sparkstudios.weatherapp.presentation.viewModels.WeatherViewModelRxJava
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
@@ -36,6 +39,9 @@ class MainActivity : ComponentActivity() {
     lateinit var viewModelFactory: WeatherViewModelFactory
 
     private lateinit var viewModel: WeatherViewModel
+
+    @Inject
+    lateinit var viewModelRxJava: WeatherViewModelRxJava
 
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
 
@@ -51,7 +57,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             WeathherAppTheme {
 
-                val state = viewModel.state.collectAsState().value
+//                val state = viewModel.state.collectAsState().value
+
+                val state = viewModelRxJava.state.collectAsState().value
 
                 Box(
                     modifier = Modifier
@@ -94,7 +102,8 @@ class MainActivity : ComponentActivity() {
         permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
         ) {
-            viewModel.processWeatherIntent(WeatherViewModel.WeatherIntent.LoadWeather)
+//            viewModel.processWeatherIntent(WeatherViewModel.WeatherIntent.LoadWeather)
+            viewModelRxJava.processWeatherIntent(WeatherViewModel.WeatherIntent.LoadWeather)
         }
         permissionLauncher.launch(
             arrayOf(

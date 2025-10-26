@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sparkstudios.weatherapp.domain.location.LocationTracker
 import com.sparkstudios.weatherapp.domain.repository.WeatherRepository
+import com.sparkstudios.weatherapp.presentation.viewModels.WeatherViewModel
 import javax.inject.Inject
 import javax.inject.Singleton
 
