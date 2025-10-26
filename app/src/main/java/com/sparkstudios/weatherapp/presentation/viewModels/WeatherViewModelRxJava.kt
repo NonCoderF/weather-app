@@ -50,7 +50,6 @@ class WeatherViewModelRxJava @Inject constructor(
                     error = "Couldn't retrieve location. Make sure to grant permission and enable GPS."
                 )
             }
-            return@launch
         } else {
             val disposable = repository.getWeatherDataSingle(location.latitude, location.longitude)
                 .subscribeOn(Schedulers.io())
